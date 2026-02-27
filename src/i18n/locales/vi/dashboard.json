@@ -20,7 +20,7 @@
   "environment": "Môi trường",
   "outside": "Bên ngoài",
   "cabin": "Cabin",
-  "petMode": "Chế độ Pet",
+  "petMode": "Chế độ Thú cưng",
   "campMode": "Chế độ Cắm trại",
   "loadingLocation": "Đang tải vị trí...",
   "vehicleLocation": "Vị trí xe",
@@ -37,8 +37,8 @@
   "statPlugged": "Đã cắm sạc",
   "statCost": "Chi phí",
   "statSaved": "Đã tiết kiệm",
-  "statIdleFee": "Phí chờ",
-  "statIdleTime": "Thời gian chờ",
-  "idleFeeLbl": "Phí chờ",
+  "statIdleFee": "Phí sạc quá giờ",
+  "statIdleTime": "Thời gian sạc quá giờ",
+  "idleFeeLbl": "Phí sạc quá giờ",
   "more": "thêm"
 }
