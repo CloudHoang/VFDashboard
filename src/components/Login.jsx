@@ -158,7 +158,7 @@ export default function Login({ bgImage }) {
                   htmlFor="remember-me"
                   className="ml-2 text-[10px] font-bold text-gray-500 uppercase tracking-wider"
                 >
-                  Remember Me
+                  {t("login:rememberMe")}
                 </label>
               </div>
 
@@ -220,10 +220,10 @@ export default function Login({ bgImage }) {
                     className="flex items-center gap-1 bg-transparent text-gray-900 text-xs font-bold focus:outline-none"
                   >
                     {region === "vn"
-                      ? t("login:regionVN")
+                      ? t("login:regionVietnam")
                       : region === "us"
                         ? t("login:regionUS")
-                        : t("login:regionEU")}
+                        : t("login:regionEurope")}
                     <svg
                       className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${regionDropdownOpen ? "rotate-180" : ""}`}
                       fill="none"
@@ -251,9 +251,9 @@ export default function Login({ bgImage }) {
                       {/* Menu */}
                       <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100 p-1.5 z-20 animate-in fade-in zoom-in-95 duration-200 origin-top-right">
                         {[
-                          { val: "vn", label: t("login:regionVN") },
+                          { val: "vn", label: t("login:regionVietnam") },
                           { val: "us", label: t("login:regionUS") },
-                          { val: "eu", label: t("login:regionEU") },
+                          { val: "eu", label: t("login:regionEurope") },
                         ].map((opt) => (
                           <button
                             key={opt.val}

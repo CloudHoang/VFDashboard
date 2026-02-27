@@ -583,7 +583,7 @@ export default function SystemHealth() {
               </>
             ) : (
               <span className="text-base font-black text-gray-400 leading-none uppercase">
-            Off
+                {t("common:off")}
               </span>
             )}
           </div>
