@@ -612,39 +612,32 @@ export default function VehicleHeader({ onOpenCharging, onOpenTelemetry }) {
                     </div>
                   </div>
 
-                  {/* Language Section — same style as vehicles */}
-                  <div className="py-2 border-t border-gray-50">
-                    <div className="px-4 py-1 mb-1">
+                  {/* Language Section — compact, consistent with vehicle list */}
+                  <div className="py-1.5 border-t border-gray-50">
+                    <div className="px-4 py-1">
                       <p className="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest">
                         {t("common:language")}
                       </p>
                     </div>
                     <div>
                       {[
-                        { val: "vi", flag: "\ud83c\uddfb\ud83c\uddf3", label: "Ti\u1ebfng Vi\u1ec7t", sub: "Vietnamese" },
-                        { val: "en", flag: "\ud83c\uddfa\ud83c\uddf8", label: "English", sub: "US English" },
+                        { val: "vi", flag: "\ud83c\uddfb\ud83c\uddf3", label: "Ti\u1ebfng Vi\u1ec7t" },
+                        { val: "en", flag: "\ud83c\uddfa\ud83c\uddf8", label: "English" },
                       ].map((opt) => {
                         const isActive = i18n.language === opt.val;
                         return (
                           <button
                             key={opt.val}
                             onClick={() => handleLangChange(opt.val)}
-                            className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-all hover:bg-blue-50/50 group ${isActive ? "bg-blue-50/80" : ""}`}
+                            className={`w-full flex items-center gap-3 px-4 py-2 text-left transition-all hover:bg-blue-50/50 ${isActive ? "bg-blue-50/80" : ""}`}
                           >
-                            <div className="relative h-10 w-12 md:h-12 md:w-16 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex items-center justify-center shrink-0">
-                              <span className="text-xl md:text-2xl">{opt.flag}</span>
-                            </div>
-                            <div className="min-w-0 flex-1">
-                              <p className={`text-sm font-extrabold truncate ${isActive ? "text-blue-700" : "text-gray-900"}`}>
-                                {opt.label}
-                              </p>
-                              <p className="text-[10px] font-mono font-bold text-gray-400 truncate tracking-tighter">
-                                {opt.sub}
-                              </p>
-                            </div>
+                            <span className="text-base leading-none shrink-0">{opt.flag}</span>
+                            <p className={`text-sm font-bold flex-1 ${isActive ? "text-blue-700" : "text-gray-700"}`}>
+                              {opt.label}
+                            </p>
                             {isActive && (
-                              <div className="h-5 w-5 rounded-full bg-blue-600 flex items-center justify-center shrink-0 shadow-sm border-2 border-white">
-                                <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4">
+                              <div className="h-4 w-4 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
+                                <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4">
                                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
                               </div>
