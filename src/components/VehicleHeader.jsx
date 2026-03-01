@@ -155,11 +155,10 @@ export default function VehicleHeader({ onOpenCharging, onOpenTelemetry }) {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [toolsOpen, setToolsOpen] = React.useState(false);
   const [showAbout, setShowAbout] = React.useState(false);
-  const [langOpen, setLangOpen] = React.useState(false);
+
 
   const handleLangChange = (newLang) => {
     i18n.changeLanguage(newLang);
-    setLangOpen(false);
   };
 
   const handleLogout = async () => {
@@ -613,63 +612,50 @@ export default function VehicleHeader({ onOpenCharging, onOpenTelemetry }) {
                     </div>
                   </div>
 
-                  <div className="h-px bg-gray-50 mx-2 my-1"></div>
-
-                  <button
-                    onClick={() => {
-                      setShowAbout(true);
-                      setMenuOpen(false);
-                    }}
-                    className="w-full text-left px-4 py-2.5 text-sm font-bold text-gray-600 hover:bg-gray-50 flex items-center gap-2 transition-colors"
-                  >
-                    <svg
-                      className="w-4 h-4 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    {t("common:aboutApp")}
-                  </button>
-
-                  {/* Language Selector */}
-                  <div>
-                    <button
-                      onClick={() => setLangOpen(!langOpen)}
-                      className="w-full text-left px-4 py-2.5 text-sm font-bold text-gray-600 hover:bg-gray-50 flex items-center gap-2 transition-colors"
-                    >
-                      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                      </svg>
-                    {i18n.language === "vi" ? "🇻🇳 Tiếng Việt" : "🇺🇸 English"}
-                      <svg className={`w-3 h-3 ml-auto text-gray-400 transition-transform ${langOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {langOpen && (
-                      <div className="mx-3 mb-1 rounded-xl border border-gray-100 bg-gray-50 p-1">
-                        {[
-                          { val: "vi", label: "🇻🇳 Tiếng Việt" },
-                          { val: "en", label: "🇺🇸 English" },
-                        ].map((opt) => (
+                  {/* Language Section — same style as vehicles */}
+                  <div className="py-2 border-t border-gray-50">
+                    <div className="px-4 py-1 mb-1">
+                      <p className="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest">
+                        {t("common:language")}
+                      </p>
+                    </div>
+                    <div>
+                      {[
+                        { val: "vi", flag: "\ud83c\uddfb\ud83c\uddf3", label: "Ti\u1ebfng Vi\u1ec7t", sub: "Vietnamese" },
+                        { val: "en", flag: "\ud83c\uddfa\ud83c\uddf8", label: "English", sub: "US English" },
+                      ].map((opt) => {
+                        const isActive = i18n.language === opt.val;
+                        return (
                           <button
                             key={opt.val}
-                            type="button"
                             onClick={() => handleLangChange(opt.val)}
-                            className={`w-full text-left px-3 py-2 rounded-lg text-sm font-bold transition-colors ${i18n.language === opt.val ? "bg-white text-blue-600 shadow-sm" : "text-gray-600 hover:bg-white"}`}
+                            className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-all hover:bg-blue-50/50 group ${isActive ? "bg-blue-50/80" : ""}`}
                           >
-                            {opt.label}
+                            <div className="relative h-10 w-12 md:h-12 md:w-16 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex items-center justify-center shrink-0">
+                              <span className="text-xl md:text-2xl">{opt.flag}</span>
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <p className={`text-sm font-extrabold truncate ${isActive ? "text-blue-700" : "text-gray-900"}`}>
+                                {opt.label}
+                              </p>
+                              <p className="text-[10px] font-mono font-bold text-gray-400 truncate tracking-tighter">
+                                {opt.sub}
+                              </p>
+                            </div>
+                            {isActive && (
+                              <div className="h-5 w-5 rounded-full bg-blue-600 flex items-center justify-center shrink-0 shadow-sm border-2 border-white">
+                                <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                              </div>
+                            )}
                           </button>
-                        ))}
-                      </div>
-                    )}
+                        );
+                      })}
+                    </div>
                   </div>
+
+                  <div className="h-px bg-gray-50 mx-2 my-1"></div>
 
                   <button
                     onClick={handleLogout}
