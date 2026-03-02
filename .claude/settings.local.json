@@ -16,7 +16,11 @@
       "Bash(gh pr view:*)",
       "Bash(where:*)",
       "Bash(git fetch:*)",
-      "Bash(git show:*)"
+      "Bash(git show:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(# Check if user has the APK somewhere locally find /Users/deepblue -name \"\"*.apk\"\" -path \"\"*infast*\"\")",
+      "Bash(# Check Android Studio''s bundled sdkmanager find \"\"/Applications/Android Studio.app\"\" -name \"\"sdkmanager\"\" -type f)",
+      "Bash(~/Library/Android/sdk/emulator/emulator -list-avds)"
     ]
   }
 }

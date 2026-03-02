@@ -55,7 +55,6 @@ export const MQTT_CONFIG = {
   },
 };
 
-
 /**
  * Backup proxy endpoints for IP rotation / failover.
  * When the primary Cloudflare proxy gets 429 from VinFast,
@@ -65,14 +64,15 @@ export const MQTT_CONFIG = {
  * - baseUrl: The proxy host URL
  * - pathPrefix: Path prefix for the proxy endpoint
  *
- * To deploy a Vercel backup proxy, see /vercel-proxy/README.md
+ * Legacy Vercel proxy templates are archived in branch: archive/root-proxy-folders
  * Set VITE_BACKUP_PROXY_URL env var to enable.
  */
 export const BACKUP_PROXIES = (() => {
   const proxies = [];
   // Support VITE_BACKUP_PROXY_URL env var (set at build time or in .env)
   const vercelUrl =
-    typeof import.meta !== "undefined" && import.meta.env?.VITE_BACKUP_PROXY_URL;
+    typeof import.meta !== "undefined" &&
+    import.meta.env?.VITE_BACKUP_PROXY_URL;
   if (vercelUrl) {
     proxies.push({
       baseUrl: vercelUrl.replace(/\/$/, ""),
