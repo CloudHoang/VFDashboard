@@ -20,7 +20,7 @@
 >
 > [![Download Windows](https://img.shields.io/badge/Download-Windows%20x64-0078D6?style=for-the-badge&logo=windows)](https://github.com/VF9-Club/VFDashboard/releases/download/v1.0.0/VFDashboard_1.0.0_x64.exe)
 >
-> [![Download Android](https://img.shields.io/badge/Download-Android%20APK-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/VF9-Club/VFDashboard/releases/download/v1.0.0/VFDashboard_1.0.0_universal.apk)
+> [![Download Android](https://img.shields.io/badge/Download-Android%20APK-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/VF9-Club/VFDashboard/releases/download/v1.0.0/VFDashboard_1.0.0_aarch64_signed.apk)
 >
 > Giao lưu cùng tác giả: [**ANH EM VF9 - VF9 CLUB**](https://www.facebook.com/groups/706124277686588/)
 >

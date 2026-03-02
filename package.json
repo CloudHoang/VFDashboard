@@ -18,6 +18,7 @@
     "tauri": "tauri",
     "tauri:dev": "tauri dev",
     "tauri:build": "tauri build",
+    "tauri:build:android:signed": "node scripts/build-tauri-android.js",
     "tauri:build:win": "node scripts/build-tauri-win.js",
     "build:tauri": "node scripts/build-tauri-frontend.js"
   },
