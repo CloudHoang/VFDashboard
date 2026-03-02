@@ -42,7 +42,7 @@ export default function DashboardApp({ vin: initialVin }) {
       {!isInitialized || !vin ? (
         <AuthGate />
       ) : (
-        <div className="fixed inset-0 w-full h-[100dvh] z-0 md:static md:min-h-[100dvh] md:h-auto md:max-w-7xl md:min-w-[1280px] md:mx-auto px-4 pt-safe-top md:pt-2 pb-28 md:pb-2 animate-in fade-in duration-700 flex flex-col md:grid md:grid-rows-[auto_1fr] md:gap-2 overflow-hidden md:overflow-visible md:p-4">
+        <div className="fixed inset-0 w-full h-[100dvh] z-0 md:static md:h-[100dvh] md:max-w-7xl md:min-w-[1280px] md:mx-auto px-4 pt-safe-top md:pt-2 pb-28 md:pb-2 animate-in fade-in duration-700 flex flex-col md:grid md:grid-rows-[auto_1fr] md:gap-2 overflow-hidden md:overflow-visible md:p-4">
           <header className="flex-shrink-0 relative z-[60]">
             <VehicleHeader
               onOpenCharging={handleOpenCharging}
@@ -50,7 +50,7 @@ export default function DashboardApp({ vin: initialVin }) {
             />
           </header>
 
-          <main className="flex-1 flex flex-col md:grid md:grid-cols-12 md:grid-rows-[1fr] gap-4 md:gap-3 min-h-0">
+          <main className="flex-1 flex flex-col md:grid md:grid-cols-12 md:content-start gap-4 md:gap-3 min-h-0">
             {/* LEFT COLUMN: Energy (Top) + Vehicle Status (Bottom) */}
             <div
               className={`md:col-span-3 flex flex-col gap-4 md:gap-2 ${activeTab === "energy_env" || activeTab === "status" ? "flex-1 min-h-0" : "hidden md:flex"}`}
